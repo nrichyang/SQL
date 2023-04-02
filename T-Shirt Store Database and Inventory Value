@@ -1,0 +1,25 @@
+-- Create a database for a t-shirt store
+
+CREATE TABLE tshirt_store (id INTEGER PRIMARY KEY, product_name TEXT, color TEXT, quantity INTEGER, price INTEGER);
+
+INSERT INTO tshirt_store VALUES(1, "v_necks", "Black", 15, 10);
+INSERT INTO tshirt_store VALUES(2, "v_necks", "Blue", 8, 10);
+INSERT INTO tshirt_store VALUES(3, "v_necks", "White", 14, 10);
+INSERT INTO tshirt_store VALUES(4, "v_necks", "Green", 4, 10);
+INSERT INTO tshirt_store VALUES(5, "graphic tees", "Black", 17, 20);
+INSERT INTO tshirt_store VALUES(6, "graphic tees", "White", 15, 20);
+INSERT INTO tshirt_store VALUES(7, "graphic tees", "Blue", 9, 20);
+INSERT INTO tshirt_store VALUES(8, "graphic tees", "Red", 4, 20);
+INSERT INTO tshirt_store VALUES(9, "anime graphic tees", "Black", 18, 25);
+INSERT INTO tshirt_store VALUES(10, "anime graphic tees", "White", 19, 25);
+INSERT INTO tshirt_store VALUES(11, "anime graphic tees", "Blue", 16, 25);
+INSERT INTO tshirt_store VALUES(12, "anime graphic tees", "Orange", 8, 25);
+INSERT INTO tshirt_store VALUES(13, "muscle tees", "Black", 8, 15);
+INSERT INTO tshirt_store VALUES(14, "muscle tees", "White", 7, 15);
+INSERT INTO tshirt_store VALUES(15, "luxury tees", "Gold", 57, 50);
+
+
+-- display the columns in the database and multiplying two columns together to identify value of stock in inventory.
+SELECT product_name, color, quantity, price, (quantity * price) AS stock_price_available
+FROM tshirt_store
+ORDER BY stock_price_available;
