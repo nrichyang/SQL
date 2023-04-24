@@ -45,3 +45,16 @@ SELECT c.fullname name, f.name franchise
 FROM characters c
 LEFT OUTER JOIN franchise f 
     ON c.id = f.character_id;
+    
+SELECT c.fullname name, f.name franchise
+FROM characters c
+LEFT OUTER JOIN franchise f 
+    ON c.id = f.character_id
+WHERE franchise LIKE "Kingdom Hearts"
+ORDER BY name;
+
+SELECT c.fullname name, f.name nintendo_franchise
+FROM characters c
+JOIN franchise f
+    on c.id = f.character_id
+WHERE nintendo_franchise IN ('Super Mario', 'The Legend of Zelda', 'Metroid');
