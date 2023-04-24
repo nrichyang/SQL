@@ -31,7 +31,7 @@ INSERT INTO franchise (character_id, name) VALUES (8, "Pokemon");
 INSERT INTO franchise (character_id, name) VALUES (9, "Pokemon");
 INSERT INTO franchise (character_id, name) VALUES (10, "Street Fighter");
 
-SELECT c.fullname, f.name
+SELECT c.fullname name, f.name franchise
 FROM characters c
 LEFT OUTER JOIN franchise f 
     ON c.id = f.character_id;
