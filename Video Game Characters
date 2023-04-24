@@ -14,6 +14,11 @@ INSERT INTO characters (fullname) VALUES ("Squirtle");
 INSERT INTO characters (fullname) VALUES ("Charmander");
 INSERT INTO characters (fullname) VALUES ("Bulbasaur");
 INSERT INTO characters (fullname) VALUES ("Ryu");
+INSERT INTO characters (fullname) VALUES ("Ken");
+INSERT INTO characters (fullname) VALUES ("Cammy");
+INSERT INTO characters (fullname) VALUES ("Ventus");
+INSERT INTO characters (fullname) VALUES ("Roxas");
+INSERT INTO characters (fullname) VALUES ("Aqua");
 
 CREATE TABLE franchise (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -30,9 +35,13 @@ INSERT INTO franchise (character_id, name) VALUES (7, "Pokemon");
 INSERT INTO franchise (character_id, name) VALUES (8, "Pokemon");
 INSERT INTO franchise (character_id, name) VALUES (9, "Pokemon");
 INSERT INTO franchise (character_id, name) VALUES (10, "Street Fighter");
+INSERT INTO franchise (character_id, name) VALUES (11, "Street Fighter");
+INSERT INTO franchise (character_id, name) VALUES (12, "Street Fighter");
+INSERT INTO franchise (character_id, name) VALUES (13, "Kingdom Hearts");
+INSERT INTO franchise (character_id, name) VALUES (14, "Kingdom Hearts");
+INSERT INTO franchise (character_id, name) VALUES (15, "Kingdom Hearts");
 
 SELECT c.fullname name, f.name franchise
 FROM characters c
 LEFT OUTER JOIN franchise f 
     ON c.id = f.character_id;
-    
