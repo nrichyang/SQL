@@ -41,11 +41,13 @@ INSERT INTO franchise (character_id, name) VALUES (13, "Kingdom Hearts");
 INSERT INTO franchise (character_id, name) VALUES (14, "Kingdom Hearts");
 INSERT INTO franchise (character_id, name) VALUES (15, "Kingdom Hearts");
 
+-- Query characters and the video game franchise they belong to
 SELECT c.fullname name, f.name franchise
 FROM characters c
 LEFT OUTER JOIN franchise f 
     ON c.id = f.character_id;
-    
+
+-- Query characters from the Kingdom Hearts franchise
 SELECT c.fullname name, f.name franchise
 FROM characters c
 LEFT OUTER JOIN franchise f 
@@ -53,6 +55,7 @@ LEFT OUTER JOIN franchise f
 WHERE franchise LIKE "Kingdom Hearts"
 ORDER BY name;
 
+-- Query characters that exist in a Nintendo Video Game
 SELECT c.fullname name, f.name nintendo_franchise
 FROM characters c
 JOIN franchise f
