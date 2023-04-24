@@ -1,0 +1,38 @@
+/* Create table about the video game characters and what franchise they are involved in */
+
+CREATE TABLE characters (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+fullname TEXT);
+
+INSERT INTO characters (fullname) VALUES ("Mario");
+INSERT INTO characters (fullname) VALUES ("Link");
+INSERT INTO characters (fullname) VALUES ("Samus Aran");
+INSERT INTO characters (fullname) VALUES ("Cloud");
+INSERT INTO characters (fullname) VALUES ("Sephiroth");
+INSERT INTO characters (fullname) VALUES ("Tifa");
+INSERT INTO characters (fullname) VALUES ("Squirtle");
+INSERT INTO characters (fullname) VALUES ("Charmander");
+INSERT INTO characters (fullname) VALUES ("Bulbasaur");
+INSERT INTO characters (fullname) VALUES ("Ryu");
+
+CREATE TABLE franchise (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+character_id NUMERIC,
+name TEXT);
+
+INSERT INTO franchise (character_id, name) VALUES (1, "Super Mario");
+INSERT INTO franchise (character_id, name) VALUES (2, "The Legend of Zelda");
+INSERT INTO franchise (character_id, name) VALUES (3, "Metroid");
+INSERT INTO franchise (character_id, name) VALUES (4, "Final Fantasy 7");
+INSERT INTO franchise (character_id, name) VALUES (5, "Final Fantasy 7");
+INSERT INTO franchise (character_id, name) VALUES (6, "Final Fantasy 7");
+INSERT INTO franchise (character_id, name) VALUES (7, "Pokemon");
+INSERT INTO franchise (character_id, name) VALUES (8, "Pokemon");
+INSERT INTO franchise (character_id, name) VALUES (9, "Pokemon");
+INSERT INTO franchise (character_id, name) VALUES (10, "Street Fighter");
+
+SELECT c.fullname, f.name
+FROM characters c
+LEFT OUTER JOIN franchise f 
+    ON c.id = f.character_id;
+    
