@@ -28,8 +28,6 @@ WHERE length(orderid) = 6
 SELECT 
     Product, price
 FROM BIT_DB.JanSales
-WHERE length(orderid) = 6
-    AND orderid <> 'Order ID'
 ORDER BY Price
 LIMIT 1;
 
@@ -38,8 +36,6 @@ SELECT
     Product,
     SUM(Quantity) * Price AS Total_Revenue
 FROM BIT_DB.JanSales
-WHERE length(orderid) = 6
-    AND orderid <> 'Order ID'
 GROUP BY 1
 ORDER BY Product;
 
@@ -49,9 +45,7 @@ SELECT
     Product,
     SUM(Quantity) * Price TotalRevenue
 FROM BIT_DB.FebSales   
-WHERE length(orderid) = 6
-    AND orderid <> 'Order ID'
-    AND location = '548 Lincoln St, Seattle, WA 98101'
+WHERE location = '548 Lincoln St, Seattle, WA 98101'
 GROUP BY Product
 ORDER BY Product;
 
