@@ -80,6 +80,7 @@ LIMIT 10;
 
 -- Query #2
 -- THE CODE BELOW THIS LINE IS THE CTE -- 
+-- Create a list of streets with their average safety ratings
 WITH safety_average_cte AS (
     SELECT
         street,
@@ -89,6 +90,7 @@ WITH safety_average_cte AS (
 )
 
 -- THE CODE BELOW THIS LINE IS A SQL QUERY THAT SELECTS FROM THE CTE --
+-- Label the streets with a rating of 4.0 and higher to be safe.
 SELECT
     street,
     avg_safety_rating,
@@ -98,3 +100,27 @@ SELECT
     END tagged
 FROM safety_average_cte
 WHERE avg_safety_rating >= 4;
+
+-- Query #3
+-- THE CODE BELOW THIS LINE IS THE CTE==
+-- Partions by the street to create averages ratings based of street names
+WITH avg_safety_ratings AS (
+    SELECT 
+        street, 
+        safetyrating,
+        AVG(safetyrating) OVER (PARTITION BY street) as "average_safety_rating"
+    FROM CityBikeLanes
+)
+
+-- THE CODE BELOW THIS LINE IS A SQL QUERY THAT SELECTS FROM THE CTE --
+-- Label the streets accordingly based on their average ratings
+SELECT
+    street,
+    safetyrating,
+    average_safety_rating,
+    CASE
+        WHEN average_safety_rating > 4 THEN 'Leave As-is'
+        WHEN average_safety_rating >= 2.5 THEN 'Needs Improvement'
+        WHEN average_safety_rating < 2.5 THEN 'Remove'
+    END to_do
+FROM avg_safety_ratings
